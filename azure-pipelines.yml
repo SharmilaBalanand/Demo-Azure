@@ -20,7 +20,7 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        containerRegistry: 'ACRExampleDemo'
+        containerRegistry: 'acrservice'
         repository: '$(imageRepo)'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
@@ -37,7 +37,7 @@ stages:
   dependsOn: Build
   variables:
     acrsecret: k8sexamplesacrauth
-    acrdevurl: 'acrexampledemo.azurecr.io'
+    acrdevurl: 'acrshar2.azurecr.io'
     replicaNo: 3
   jobs:
   - deployment: Deploy
