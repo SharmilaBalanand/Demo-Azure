@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: sharmilabalananddemoazure 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sharmilabalananddemoazure
+  template:
+    metadata:
+      labels:
+        app: sharmilabalananddemoazure 
+    spec:
+      containers:
+        - name: sharmilabalananddemoazure 
+          image: k8sexampleacr.azurecr.io/sharmilabalananddemoazure
+          ports:
+          - containerPort: 80
